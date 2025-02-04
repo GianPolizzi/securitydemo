@@ -9,13 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-    @Bean
-    public GroupedOpenApi publicApi() {
-        return GroupedOpenApi.builder()
-                .group("public")
-                .pathsToMatch("/**")
-                .build();
-    }
 
     @Bean
     public OpenAPI customOpenAPI() {
@@ -25,5 +18,13 @@ public class SwaggerConfig {
                         .version("1.0")
                         .description("API documentation for the Security Demo Application.")
                 );
+    }
+
+    @Bean
+    public GroupedOpenApi authorizationApi() {
+        return GroupedOpenApi.builder()
+                .group("Authorization")
+                .pathsToMatch("/authorization/**")
+                .build();
     }
 }

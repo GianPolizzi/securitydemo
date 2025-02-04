@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Content Controller", description = "Content controller for Security Demo Application")
+@Tag(name = "Authorization Controller", description = "Authorization controller for Security Demo Application")
 @RestController
-public class ContentController {
+@RequestMapping("/authorization")
+public class AuthorizationController {
 
-    @Operation(summary = "Hello message")
-    @GetMapping("/hello")
+    @Operation(summary = "Welcome message")
+    @GetMapping("/welcome")
     public String hello() {
-        return "Hello, World!";
+        return "Welcome to the Security Demo App! Please use Authorization API to start...";
     }
 }
