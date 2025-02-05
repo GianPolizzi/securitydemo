@@ -19,7 +19,8 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Security Demo Application API")
                         .version("1.0")
-                        .description("API documentation for the Security Demo Application.")
+                        .description("API documentation for the Security Demo Application." +
+                                " Please authenticate by select definition 'Authorization' -> 'Authenticate'")
                 );
     }
 
@@ -28,6 +29,22 @@ public class SwaggerConfig {
         return GroupedOpenApi.builder()
                 .group("Authorization")
                 .pathsToMatch("/authorization/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi adminApi() {
+        return GroupedOpenApi.builder()
+                .group("Admin")
+                .pathsToMatch("/admin/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi userApi() {
+        return GroupedOpenApi.builder()
+                .group("User")
+                .pathsToMatch("/user/**")
                 .build();
     }
 }
