@@ -3,6 +3,7 @@ package com.example.securitydemo.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +15,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Servizio che genera il token, quindi la secret key in Base64,
+ * settando la durata del token e la sua validità.
+ * Gli attributi SECRET e VALIDITY_IN_MINUTES sono configurati nel file application.properties
+ */
 @Service
 public class JwtService {
 
-    private final static String SECRET = "70CAB8EAE9FD6E8C36F27470B487054E3596F581A0FBFAAA0A756844294F8AA42199C6C9901145CF4A90D0577BCCF7B0FE0361E86CD1EF9F64C2AA16A0CD84FA";
-    private final static long VALIDITY_IN_MINUTES = 30;
+    @Value("${jwt.secret}")
+    private String SECRET;
+
+    @Value("${jwt.validity}")
+    private long VALIDITY_IN_MINUTES;
 
     public String generateToken(UserDetails userDetails){
         Map<String, String> claims = new HashMap<>();
