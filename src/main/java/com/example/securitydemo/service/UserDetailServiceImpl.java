@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Servizio che implementa UserDetailsService di Spring security.
+ * Recupera l'utente dal DB e costruisce l'istanza UserDetails di Spring Security.
+ */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 

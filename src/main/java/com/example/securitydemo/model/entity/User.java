@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * Entity principale che mappa la tabella del DB (MySQL).
+ * La tabella contiene le informazioni sugli utenti registrati ed i relativi ruoli
+ */
 @Entity
 public class User {
 

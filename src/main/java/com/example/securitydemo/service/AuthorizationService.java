@@ -8,6 +8,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/**
+ * Servizio che gestisce l'autenticazione dell'utente.
+ * Se l'utente è registrato nel DB, viene rilasciato un token JWT per autorizzare le future richieste.
+ */
 @Service
 public class AuthorizationService {
 

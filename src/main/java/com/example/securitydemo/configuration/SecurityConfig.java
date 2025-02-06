@@ -19,6 +19,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * Spring security Configuration class
+ * Il metodo principale filtra gli URL autorizzati, rendendo disponibili solo quelli pubblici o quelli
+ * autorizzati in base al ruolo identificato in fase di Login.
  */
 @Configuration
 @EnableWebSecurity

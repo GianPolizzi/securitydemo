@@ -16,6 +16,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * Classe di configurazione che estende la classe OncePerRequestFilter di Spring Security.
+ * Utilizza un filtro per la gestione dell'autenticazione tramite JWT con Bearer Token
+ * Il metodo estrae lo username dal token, verificando che l'utente sia registrato ed autorizza la
+ * richiesta API desiderata.
+ */
 @Configuration
 public class JwtAuthFilterConfig extends OncePerRequestFilter {
 
