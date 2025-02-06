@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Spring security Configuration class
@@ -25,6 +26,9 @@ public class SecurityConfig {
 
     @Autowired
     private UserDetailServiceImpl userDetailServiceImpl;
+
+    @Autowired
+    private JwtAuthFilterConfig jwtAuthFilterConfig;
 
 
 
@@ -40,7 +44,8 @@ public class SecurityConfig {
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/user/**").hasRole("USER")
                         .anyRequest().authenticated()
-                );
+                )
+                .addFilterBefore(jwtAuthFilterConfig, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }

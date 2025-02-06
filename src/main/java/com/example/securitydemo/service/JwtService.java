@@ -1,5 +1,6 @@
 package com.example.securitydemo.service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 public class JwtService {
 
     private final static String SECRET = "70CAB8EAE9FD6E8C36F27470B487054E3596F581A0FBFAAA0A756844294F8AA42199C6C9901145CF4A90D0577BCCF7B0FE0361E86CD1EF9F64C2AA16A0CD84FA";
-
     private final static long VALIDITY_IN_MINUTES = 30;
 
     public String generateToken(UserDetails userDetails){
@@ -36,5 +36,22 @@ public class JwtService {
     private SecretKey generateKey(){
         byte[] decodedKey = Base64.getDecoder().decode(SECRET);
         return Keys.hmacShaKeyFor(decodedKey);
+    }
+
+    public String extractUsername(String jwt){
+        return getClaims(jwt).getSubject();
+    }
+
+    private Claims getClaims(String jwt){
+        return Jwts.parserBuilder()
+                .setSigningKey(generateKey())
+                .build()
+                .parseClaimsJws(jwt)
+                .getBody();
+    }
+
+    public boolean isTokenValid(String jwt){
+        Claims claims = getClaims(jwt);
+        return claims.getExpiration().after(Date.from(Instant.now()));
     }
 }

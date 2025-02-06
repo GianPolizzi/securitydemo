@@ -23,7 +23,7 @@ public class AuthorizationController {
     @Operation(summary = "Welcome message")
     @GetMapping("/welcome")
     public String welcome() {
-        return "Welcome to the Security Demo App! Please use Authorization API to start...";
+        return "Welcome to the Security Demo App! Please register a new User or use the authorization API to start...";
     }
 
     @Operation(summary = "Register new user")
