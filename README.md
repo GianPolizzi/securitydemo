@@ -10,7 +10,7 @@ This starter securitydemo App focuses attentiontion about the following security
 - *Roles Autorization & Permission*
 
 
-### Specifications
+## Specifications
 
 - Language: Java 23
 - Framework: Spring (Springboot 3.4.2)
@@ -18,7 +18,7 @@ This starter securitydemo App focuses attentiontion about the following security
 - Database: MySQL 8.0.33
 
 
-#### APIs
+### APIs
 1. localhost:8080/authorization/welcome
 2. localhost:8080/authorization/register
 3. localhost:8080/authorization/authenticate
@@ -26,20 +26,20 @@ This starter securitydemo App focuses attentiontion about the following security
 5. localhost:8080/user/welcome
 
 
-### How to start
+## How to start
 
-##### 1. Clone repository
+### 1. Clone repository
 Clone repository in your device using git command:
   git clone
 
-##### 2. Open project
+### 2. Open project
 Open securitydemo project with IntelliJ IDE (or others)
 
-##### 3. Maven build automation
+### 3. Maven build automation
 Check pom.xml file and use maven command to build the project using:
   mvn clean install
 
-##### 4. Prepare MySQL DB
+### 4. Prepare MySQL DB
 - Install MySQL in your device (version 8 ->)
 - Create a new schema named *securitydb*
 - Create the table User with query:
@@ -53,7 +53,7 @@ Check pom.xml file and use maven command to build the project using:
     );
   ```
 
-##### 5. Start project
+### 5. Start project
 Run securitydemo project and navigate with your browser to URL: 
   http://localhost:8080/swagger-ui/index.html
 
