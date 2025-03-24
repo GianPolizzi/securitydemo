@@ -1,8 +1,8 @@
 # Spring Security Demo Application
 
-Basic Back-end start architecture for simple web app in **Java EE (Jakarta)** with **Spring Framework** and **Maven**, built with **InstelliJ IDE**.
-The application show the **Springboot** configuration, integrated with **Spring Data** and **Spring Security** modules.
-The interface is realized with **Swagger-UI** library.
+Basic Back-end start architecture for simple web app in **Java EE (Jakarta)** with **Spring Framework** and **Maven**, built with **IntelliJ IDE**.
+The application contains the **Springboot** module for configuration, **Spring Data** and **Spring Security** modules.
+The interface was realized with **Swagger-UI** library.
 This starter securitydemo App focuses attentiontion about the following security operations:
 
 - *Security Authentication*
